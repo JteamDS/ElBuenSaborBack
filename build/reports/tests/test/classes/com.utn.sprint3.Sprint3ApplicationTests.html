@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Sprint3ApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Sprint3ApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.utn.sprint3.html">com.utn.sprint3</a> &gt; Sprint3ApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.753s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads()</td>
+<td class="success">0.753s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>20:45:09.809 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.utn.sprint3.Sprint3ApplicationTests]: Sprint3ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:45:09.943 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.utn.sprint3.Sprint3Application for test class com.utn.sprint3.Sprint3ApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.4)
+
+2023-10-24T20:45:10.488-03:00  INFO 15556 --- [    Test worker] c.utn.sprint3.Sprint3ApplicationTests    : Starting Sprint3ApplicationTests using Java 17.0.8 with PID 15556 (started by MegaTecnologia in D:\desarrollo software\java\sprint4)
+2023-10-24T20:45:10.490-03:00  INFO 15556 --- [    Test worker] c.utn.sprint3.Sprint3ApplicationTests    : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-10-24T20:45:11.700-03:00  INFO 15556 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-24T20:45:11.845-03:00  INFO 15556 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 11 JPA repository interfaces.
+2023-10-24T20:45:12.669-03:00  INFO 15556 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-24T20:45:12.769-03:00  INFO 15556 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-24T20:45:12.774-03:00  INFO 15556 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-10-24T20:45:12.984-03:00  INFO 15556 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-24T20:45:13.214-03:00  INFO 15556 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-24T20:45:13.242-03:00  INFO 15556 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-24T20:45:13.508-03:00  INFO 15556 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:./betodb user=SA
+2023-10-24T20:45:13.511-03:00  INFO 15556 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-24T20:45:14.013-03:00  INFO 15556 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-10-24T20:45:14.948-03:00  INFO 15556 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: create table articulo_manufacturado (id bigint generated by default as identity, costo float(24) not null, denominacion varchar(255), descripcion varchar(1000), fecha_alta timestamp(6), fecha_baja timestamp(6), fecha_modificacion timestamp(6), precio_venta float(24) not null, tiempo_estimado_cocina integer, &quot;id-rubro&quot; bigint, primary key (id))
+Hibernate: create table articulo_insumo (id bigint generated by default as identity, denominacion varchar(255), fecha_alta timestamp(6), fecha_baja timestamp(6), fecha_modificacion timestamp(6), precio_compra float(24) not null, stock_actual float(24) not null, stock_minimo float(24) not null, id_unidad_medida bigint, &quot;id-rubro&quot; bigint, primary key (id))
+Hibernate: create table cliente (id bigint generated by default as identity, apellido varchar(255), email varchar(255), fecha_alta timestamp(6), fecha_baja timestamp(6), fecha_modificacion timestamp(6), nombre varchar(255), telefono varchar(255), id_usuario bigint, primary key (id))
+Hibernate: create table detalle_factura (id bigint generated by default as identity, cantidad integer, subtotal float(24) not null, id_articulo_insumo bigint, id_articulo_manufacturado bigint, &quot;id-factura&quot; bigint, primary key (id))
+Hibernate: create table detalle_pedido (id bigint generated by default as identity, cantidad integer, subtotal float(24) not null, subtotal_costo float(24) not null, id_articulo_insumo bigint, id_articulo_manufacturado bigint, id_pedido bigint, primary key (id))
+Hibernate: create table domicilio (id bigint generated by default as identity, calle varchar(500), codigo_postal integer, fecha_alta timestamp(6), fecha_baja timestamp(6), fecha_modificacion timestamp(6), localidad varchar(255), numero integer, numero_departamento integer, piso_departamento integer, &quot;cliente-id&quot; bigint, primary key (id))
+Hibernate: create table factura (id bigint generated by default as identity, fecha_facturacion timestamp(6), forma_pago tinyint check (forma_pago between 0 and 1), mp_payment_id bigint, mp_payment_type varchar(255), total_venta numeric(10,2), primary key (id))
+Hibernate: create table pedido (id bigint generated by default as identity, estado varchar(255) check (estado in ('PENDIENTE_PAGO','PAGADO','PREPARACION','PENDIENTE_ENTREGA','EN_CAMINO','CANCELADO','NOTA_CREDITO','COMPLETADO')), fecha_pedido timestamp(6), forma_pago varchar(255) check (forma_pago in ('EFECTIVO','MERCADO_PAGO')), hora_estimada_finalizacion timestamp(6), tipo_envio varchar(255) check (tipo_envio in ('DELIVERY','TAKE_AWAY')), total float(24) not null, total_costo float(24) not null, id_domicilio_entrega bigint, id_factura bigint, id_cliente bigint, primary key (id))
+Hibernate: create table rubro_articulo (id bigint generated by default as identity, denominacion varchar(255), fecha_alta timestamp(6), fecha_baja timestamp(6), fecha_modificacion timestamp(6), id_rubro_padre bigint, primary key (id))
+Hibernate: create table unidad_medida (id bigint generated by default as identity, abreviatura varchar(25), denominacion varchar(255), fecha_alta timestamp(6), fecha_baja timestamp(6), fecha_modificacion timestamp(6), primary key (id))
+Hibernate: create table usuario (id bigint generated by default as identity, fecha_alta timestamp(6), fecha_baja timestamp(6), fecha_modificacion timestamp(6), password varchar(255) not null, rol tinyint not null check (rol between 0 and 4), username varchar(255) not null, primary key (id))
+Hibernate: alter table if exists cliente drop constraint if exists UK_m1e6bw9cg5aydhk0rlylo5oom
+Hibernate: alter table if exists cliente add constraint UK_m1e6bw9cg5aydhk0rlylo5oom unique (id_usuario)
+Hibernate: alter table if exists pedido drop constraint if exists UK_ct75dgalhyyu0x3m7x7tm3x73
+Hibernate: alter table if exists pedido add constraint UK_ct75dgalhyyu0x3m7x7tm3x73 unique (id_factura)
+Hibernate: alter table if exists usuario drop constraint if exists UK_pxmmy0wtdljr5w1i7ncrjjby2
+Hibernate: alter table if exists usuario add constraint UK_pxmmy0wtdljr5w1i7ncrjjby2 unique (password)
+Hibernate: alter table if exists articulo_manufacturado add constraint FKr5m9dol95xg9f3gkq4wc7ph7x foreign key (&quot;id-rubro&quot;) references rubro_articulo
+Hibernate: alter table if exists articulo_insumo add constraint FKkytvj88cp7kvkjf5vjvlpblho foreign key (id_unidad_medida) references unidad_medida
+Hibernate: alter table if exists articulo_insumo add constraint FKaqwdqxaa9levp7exjtmqngmgq foreign key (&quot;id-rubro&quot;) references rubro_articulo
+Hibernate: alter table if exists cliente add constraint FKetx0tojxf5yevxcyt6qb526x5 foreign key (id_usuario) references usuario
+Hibernate: alter table if exists detalle_factura add constraint FKmhl6r3c6fitrmer0ku9owk922 foreign key (id_articulo_insumo) references articulo_insumo
+Hibernate: alter table if exists detalle_factura add constraint FK56rgdq93502u2m01hfxb2hk7k foreign key (id_articulo_manufacturado) references articulo_manufacturado
+Hibernate: alter table if exists detalle_factura add constraint FK2u28a1lcqp5xmgdj2s9p3p3o6 foreign key (&quot;id-factura&quot;) references factura
+Hibernate: alter table if exists detalle_pedido add constraint FKdkmafp9kobkm6prfdnotenv7s foreign key (id_articulo_insumo) references articulo_insumo
+Hibernate: alter table if exists detalle_pedido add constraint FKf36r27bogdrgkdneekoag4s1t foreign key (id_articulo_manufacturado) references articulo_manufacturado
+Hibernate: alter table if exists detalle_pedido add constraint FK7n9hdifr08joboojejveby1vr foreign key (id_pedido) references pedido
+Hibernate: alter table if exists domicilio add constraint FKht2e1k16ej1ribvo2gxx5qux8 foreign key (&quot;cliente-id&quot;) references cliente
+Hibernate: alter table if exists pedido add constraint FK8rl5nj1o66wpyep4178lwdh70 foreign key (id_domicilio_entrega) references domicilio
+Hibernate: alter table if exists pedido add constraint FKtxgs8kx26lgcev3un7n520sw foreign key (id_factura) references factura
+Hibernate: alter table if exists pedido add constraint FK9y4jnyp1hxqa386cnly0ay9uw foreign key (id_cliente) references cliente
+Hibernate: alter table if exists rubro_articulo add constraint FKib3v7aol7nr8q3ddv07qlxcpe foreign key (id_rubro_padre) references rubro_articulo
+2023-10-24T20:45:15.069-03:00  INFO 15556 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24T20:45:15.533-03:00  INFO 15556 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-10-24T20:45:17.334-03:00  WARN 15556 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-24T20:45:18.415-03:00  INFO 15556 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:./betodb'
+2023-10-24T20:45:18.508-03:00  INFO 15556 --- [    Test worker] c.utn.sprint3.Sprint3ApplicationTests    : Started Sprint3ApplicationTests in 8.311 seconds (process running for 9.923)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.3</a> at 24 oct 2023 20:45:19</p>
+</div>
+</div>
+</body>
+</html>
