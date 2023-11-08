@@ -15,25 +15,15 @@ import java.util.Date;
 public class Usuario extends BaseEntidad {
 
     @NotNull
-    @Column(name = "password", nullable = false, unique = true)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @NotNull
     @Column(name = "rol", nullable = false)
     private Rol rol;
 
     @NotNull
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
-
-    @NotNull
-    @Column(name = "fecha_alta")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaAlta;
-
-    @Column(name = "fecha_modificacion")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaModificacion;
 
     @Column(name = "fecha_baja")
     @Temporal(TemporalType.TIMESTAMP)

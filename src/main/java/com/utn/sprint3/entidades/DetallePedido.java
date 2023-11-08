@@ -19,9 +19,6 @@ public class DetallePedido extends BaseEntidad{
     @NotNull
     private float subtotal;
 
-    @NotNull
-    private float subtotalCosto;
-
     @ManyToOne()
     @JoinColumn(name = "id_articulo_insumo")
     private ArticuloInsumo articuloInsumo;

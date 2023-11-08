@@ -21,7 +21,7 @@ public class Factura extends BaseEntidad {
     @NotNull
     @Column(name = "fecha_facturacion")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaFacturacion;
+    private String fechaFacturacion;
 
     @Column(name = "mp_payment_id")
     private Long mpPaymentId;
@@ -36,7 +36,6 @@ public class Factura extends BaseEntidad {
     @Column(name = "total_venta", precision = 10, scale = 2)
     private BigDecimal totalVenta;
 
-    @NotNull
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "id-factura")
     private List<DetalleFactura> detalleFacturas = new ArrayList<>();

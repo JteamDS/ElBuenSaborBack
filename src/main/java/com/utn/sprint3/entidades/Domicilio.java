@@ -28,21 +28,6 @@ public class Domicilio extends BaseEntidad {
     @NotNull
     private String localidad;
 
-    @Column(name = "numero_departamento")
-    private Integer numeroDpto;
-
-    @Column(name = "piso_departamento")
-    private Integer pisoDpto;
-
-    @NotNull
-    @Column(name = "fecha_alta")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaAlta;
-
-    @Column(name = "fecha_modificacion")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaModificacion;
-
     @Column(name = "fecha_baja")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaBaja;

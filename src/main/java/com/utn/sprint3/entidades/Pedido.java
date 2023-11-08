@@ -21,19 +21,14 @@ public class Pedido extends BaseEntidad {
 
     @NotNull
     @Column(name = "fecha_pedido")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaPedido;
+    private String fechaPedido;
 
     @NotNull
     @Column(name = "hora_estimada_finalizacion")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date horaEstimadaFinalizacion;
+    private String horaEstimadaFinalizacion;
 
     @NotNull
     private float total;
-
-    @NotNull
-    private float totalCosto;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -54,14 +49,13 @@ public class Pedido extends BaseEntidad {
     private Domicilio domicilioEntrega;
 
     @NotNull
-    @OneToOne
-    @JoinColumn(name = "id_factura")
-    private Factura factura;
-
-    @NotNull
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_pedido")
     private List<DetallePedido> detallePedidos = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "id_factura")
+    private Factura factura;
 
 
 }
