@@ -38,6 +38,9 @@ public class Pedido extends BaseEntidad {
     @NotNull
     private float total;
 
+    @NotNull
+    private float totalCosto;
+
     @ManyToOne()
     @JoinColumn(name = "id_domicilio_entrega")
     private Domicilio domicilioEntrega;
