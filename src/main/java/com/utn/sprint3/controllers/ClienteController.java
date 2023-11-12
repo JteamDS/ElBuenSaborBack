@@ -63,5 +63,29 @@ public class ClienteController extends BaseControllerImpl<Cliente, ClienteServic
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
         }
     }
+    @GetMapping("/verPedidos")
+    public ResponseEntity<?> verPedidos(@RequestParam Long idCliente){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.verPedidos(idCliente));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+        }
+    }
+    @GetMapping("/clienteMasPedidos")
+    public ResponseEntity<?> clienteMasPedidos(){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.clienteMasPedidos());
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+        }
+    }
+    @GetMapping("/clienteMasImporte")
+    public ResponseEntity<?> clienteMasImporte(){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.clienteMasImporte());
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+        }
+    }
 
 }

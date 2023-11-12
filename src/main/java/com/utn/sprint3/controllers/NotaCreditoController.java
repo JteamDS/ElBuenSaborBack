@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "ap1/v1/nota")
+@RequestMapping(path = "api/v1/nota")
 public class NotaCreditoController extends BaseControllerImpl<NotaCredito, NotaCreditoServicesImpl> {
     @PostMapping("/anularFactura")
     public ResponseEntity<?> anularFactura(@RequestBody DtoNota dtoNota){

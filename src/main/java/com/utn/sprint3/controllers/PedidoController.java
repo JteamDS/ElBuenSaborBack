@@ -1,5 +1,6 @@
 package com.utn.sprint3.controllers;
 
+import com.utn.sprint3.Dto.DtoCambioEstado;
 import com.utn.sprint3.Dto.DtoFactura;
 import com.utn.sprint3.Dto.DtoPedido;
 import com.utn.sprint3.entidades.Factura;
@@ -28,9 +29,9 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServicesI
         }
     }
     @GetMapping("/buscarEstado")
-    public ResponseEntity<?> buscarEstado(@RequestParam EstadoPedido estado){
+    public ResponseEntity<?> buscarEstado(@RequestBody DtoCambioEstado dtoCambioEstado){
         try{
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.buscarEstado(estado));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.buscarEstado(dtoCambioEstado));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
@@ -44,9 +45,9 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServicesI
         }
     }
     @PostMapping("/cambiarEstado")
-    public ResponseEntity<?> cambiarEstado(@RequestParam Long id, EstadoPedido estado){
+    public ResponseEntity<?> cambiarEstado(@RequestBody DtoCambioEstado dtoCambioEstado){
         try{
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.cambiarEstado(id,estado));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.cambiarEstado(dtoCambioEstado));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
@@ -63,6 +64,14 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServicesI
     public ResponseEntity<?> search(@RequestParam String filtro, Pageable pageable){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro, pageable));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+        }
+    }
+    @GetMapping("/verGanancias")
+    public ResponseEntity<?> verGanancias(){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.verGanancias());
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
         }

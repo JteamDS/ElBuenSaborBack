@@ -37,5 +37,12 @@ public class ProductoController extends BaseControllerImpl<Producto, ProductoSer
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
         }
     }
-
+    @GetMapping("/verMasVendidos")
+    public ResponseEntity<?> verMasVendidos(){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.verMasVendidos());
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+        }
+    }
 }
