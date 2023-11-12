@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UsuarioRepository extends BaseRepository<Usuario,Long> {
@@ -20,5 +21,7 @@ public interface UsuarioRepository extends BaseRepository<Usuario,Long> {
 
     @Query(value = "SELECT u FROM Usuario u WHERE u.username LIKE %:filtro%")
     Page<Usuario> search(@Param("filtro") String filtro, Pageable pageable);
+
+    Optional<Usuario> findByUsername(String username);
 
 }
