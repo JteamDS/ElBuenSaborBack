@@ -24,7 +24,7 @@ public class UnidadMedidaServicesImpl extends BaseServicesImpl<UnidadMedida,Long
     @Override
     public List<UnidadMedida> search(String filtro) throws Exception {
         try{
-            List<UnidadMedida> unidadMedidas = unidadMedidaRepository.searchNativo(filtro);
+            List<UnidadMedida> unidadMedidas = unidadMedidaRepository.search(filtro);
             return unidadMedidas;
         } catch(Exception e){
             throw new Exception(e.getMessage());
@@ -34,7 +34,7 @@ public class UnidadMedidaServicesImpl extends BaseServicesImpl<UnidadMedida,Long
     @Override
     public Page<UnidadMedida> search(String filtro, Pageable pageable) throws Exception {
         try{
-            Page<UnidadMedida> unidadMedidas= unidadMedidaRepository.searchNativo(filtro, pageable);
+            Page<UnidadMedida> unidadMedidas= unidadMedidaRepository.search(filtro, pageable);
             return unidadMedidas;
         } catch (Exception e){
             throw new Exception(e.getMessage());

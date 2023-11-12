@@ -25,7 +25,7 @@ public class UsuarioServicesImpl extends BaseServicesImpl<Usuario,Long> implemen
     @Override
     public List<Usuario> search(String filtro) throws Exception {
         try{
-            List<Usuario> usuarios = usuarioRepository.searchNativo(filtro);
+            List<Usuario> usuarios = usuarioRepository.search(filtro);
             return usuarios;
         } catch(Exception e){
             throw new Exception(e.getMessage());
@@ -34,7 +34,7 @@ public class UsuarioServicesImpl extends BaseServicesImpl<Usuario,Long> implemen
     @Override
     public Page<Usuario> search(String filtro, Pageable pageable) throws Exception {
         try{
-            Page<Usuario> usuarios= usuarioRepository.searchNativo(filtro, pageable);
+            Page<Usuario> usuarios= usuarioRepository.search(filtro, pageable);
             return usuarios;
         } catch (Exception e){
             throw new Exception(e.getMessage());
