@@ -1,6 +1,8 @@
 package com.utn.sprint3.controllers;
 
 
+import com.utn.sprint3.Dto.DtoCliente;
+import com.utn.sprint3.Dto.DtoDomicilio;
 import com.utn.sprint3.entidades.Cliente;
 import com.utn.sprint3.services.ClienteServicesImpl;
 import org.springframework.data.domain.Pageable;
@@ -29,4 +31,37 @@ public class ClienteController extends BaseControllerImpl<Cliente, ClienteServic
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
         }
     }
+    @PostMapping("/modificar")
+    public ResponseEntity<?> modificarDatos(@RequestBody DtoCliente dtoCliente){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.modificarDatos(dtoCliente));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+        }
+    }
+    @GetMapping("/verDatos")
+    public ResponseEntity<?> verDatos(@RequestParam Long id){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.verDatos(id));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+        }
+    }
+    @PostMapping("/agregarDom")
+    public ResponseEntity<?> agregarDom(@RequestBody DtoDomicilio dtoDomicilio){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.agregarDomicilio(dtoDomicilio));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+        }
+    }
+    @DeleteMapping("/eliminarDom")
+    public ResponseEntity<?> agregarDom(@RequestParam Long idCliente,Long idDomicilio){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.eliminarDomicilio(idCliente, idDomicilio));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+        }
+    }
+
 }

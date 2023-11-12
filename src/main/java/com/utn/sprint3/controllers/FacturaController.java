@@ -1,5 +1,6 @@
 package com.utn.sprint3.controllers;
 
+import com.utn.sprint3.Dto.DtoFactura;
 import com.utn.sprint3.entidades.Domicilio;
 import com.utn.sprint3.entidades.Factura;
 import com.utn.sprint3.services.DomicilioServicesImpl;
@@ -14,20 +15,5 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path ="api/v1/facturas")
 public class FacturaController extends BaseControllerImpl<Factura, FacturaServicesImpl>{
 
-    @GetMapping("/search")
-    public ResponseEntity<?> search(@RequestParam String filtro){
-        try{
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
-        } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
-        }
-    }
-    @GetMapping("/searchPaged")
-    public ResponseEntity<?> search(@RequestParam String filtro, Pageable pageable){
-        try{
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro, pageable));
-        } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
-        }
-    }
+
 }

@@ -1,5 +1,6 @@
 package com.utn.sprint3.controllers;
 
+import com.utn.sprint3.Dto.DtoRubro;
 import com.utn.sprint3.entidades.Pedido;
 import com.utn.sprint3.entidades.RubroArticulo;
 import com.utn.sprint3.services.PedidoServicesImpl;
@@ -14,20 +15,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path ="api/v1/rubroArticulos")
 public class RubroArticuloController extends BaseControllerImpl<RubroArticulo, RubroArticuloServicesImpl>{
 
-    @GetMapping("/search")
-    public ResponseEntity<?> search(@RequestParam String filtro){
+    @GetMapping("/buscarCategoria")
+    public ResponseEntity<?> buscarCategoria(@RequestParam String nombre){
         try{
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.buscarPorCategoria(nombre));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
-    @GetMapping("/searchPaged")
-    public ResponseEntity<?> search(@RequestParam String filtro, Pageable pageable){
+    @PostMapping("/modificarRubro")
+    public ResponseEntity<?> modificarRubro(@RequestBody DtoRubro dtoRubro){
         try{
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.modificarRubro(dtoRubro));
         } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente mas tarde\"}");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
+
 }
