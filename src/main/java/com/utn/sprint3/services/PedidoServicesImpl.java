@@ -1,6 +1,7 @@
 package com.utn.sprint3.services;
 
 
+import com.utn.sprint3.Dto.DtoCambioEstado;
 import com.utn.sprint3.Dto.DtoFactura;
 import com.utn.sprint3.Dto.DtoPedido;
 import com.utn.sprint3.Dto.DtoPedidoProducto;
@@ -72,7 +73,8 @@ public class PedidoServicesImpl extends BaseServicesImpl<Pedido,Long> implements
 
             List<DtoPedidoProducto> dtoPedidoProductos = dtoPedido.getProductos();
             List<DetallePedido> detallePedidos = new ArrayList<>();
-            Float total = 0f;
+            float total = 0;
+            float costo = 0;
             for (DtoPedidoProducto dtoPedidoProducto : dtoPedidoProductos){
                 DetallePedido detallePedido = new DetallePedido();
                 Producto producto = productoRepository.buscarPorNombre(dtoPedidoProducto.getNombre());
@@ -82,9 +84,11 @@ public class PedidoServicesImpl extends BaseServicesImpl<Pedido,Long> implements
                 detallePedidos.add(detallePedido);
                 producto.setStockActual(producto.getStockActual()-detallePedido.getCantidad());
                 total=total+detallePedido.getSubtotal();
+                costo=costo+detallePedido.getProducto().getCosto()*detallePedido.getCantidad();
             }
             pedido.setDetallePedidos(detallePedidos);
             pedido.setTotal(total);
+            pedido.setTotalCosto(costo);
             List<Pedido> pedidos = cliente.getPedidos();
             pedidos.add(pedido);
 
@@ -96,9 +100,9 @@ public class PedidoServicesImpl extends BaseServicesImpl<Pedido,Long> implements
     }
 
     @Override
-    public List<Pedido> buscarEstado(EstadoPedido estadoPedido) throws Exception {
+    public List<Pedido> buscarEstado(DtoCambioEstado dtoCambioEstado) throws Exception {
         try {
-            List<Pedido> pedidos=pedidoRepository.buscarEstado(estadoPedido);
+            List<Pedido> pedidos=pedidoRepository.buscarEstado(dtoCambioEstado.getEstadoPedido());
             return pedidos;
         } catch (Exception e){
             throw new Exception(e.getMessage());
@@ -106,10 +110,10 @@ public class PedidoServicesImpl extends BaseServicesImpl<Pedido,Long> implements
     }
 
     @Override
-    public Pedido cambiarEstado(Long id, EstadoPedido estado) throws Exception {
+    public Pedido cambiarEstado(DtoCambioEstado dtoCambioEstado) throws Exception {
         try {
-            Pedido pedido = pedidoRepository.buscarId(id);
-            pedido.setEstado(estado);
+            Pedido pedido = pedidoRepository.buscarId(dtoCambioEstado.getIdPedido());
+            pedido.setEstado(dtoCambioEstado.getEstadoPedido());
             pedidoRepository.save(pedido);
             return pedido;
         } catch (Exception e){
@@ -143,6 +147,28 @@ public class PedidoServicesImpl extends BaseServicesImpl<Pedido,Long> implements
             pedidoRepository.save(pedido);
             return factura;
         }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public String verGanancias() throws Exception {
+        try {
+            List<Pedido> pedidos = pedidoRepository.findAll();
+            float ingresos = 0;
+            float costos = 0;
+
+            for (Pedido pedido : pedidos){
+                ingresos=ingresos+pedido.getTotal();
+                costos=costos+pedido.getTotalCosto();
+            }
+            float ganancias = ingresos-costos;
+            return "-------------Ganancias----------------\n" +
+                    "Ingresos: " + ingresos + "\n" +
+                    "Costos: " + costos + "\n" +
+                    "\n" +
+                    "Ganancias: " + ganancias + "\n";
+        } catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }

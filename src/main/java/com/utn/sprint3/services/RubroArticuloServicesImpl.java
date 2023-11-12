@@ -39,7 +39,7 @@ public class RubroArticuloServicesImpl extends BaseServicesImpl<RubroArticulo,Lo
     @Override
     public RubroArticulo modificarRubro(DtoRubro dtoRubro) throws Exception {
         try {
-            RubroArticulo rubroArticulo = rubroArticuloRepository.getById(dtoRubro.getIdRubro());
+            RubroArticulo rubroArticulo = rubroArticuloRepository.buscarPorId(dtoRubro.getIdRubro());
 
             if (dtoRubro.getNombre()!=null){
                 rubroArticulo.setNombre(dtoRubro.getNombre());

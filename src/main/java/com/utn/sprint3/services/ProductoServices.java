@@ -12,4 +12,5 @@ public interface ProductoServices extends BaseServices<Producto, Long>{
     List<Producto> search(String filtro) throws Exception;
     Producto crearProducto(DtoProducto dtoProducto) throws Exception;
     Page<Producto> search(String filtro, Pageable pageable) throws Exception;
+    String verMasVendidos() throws Exception;
 }

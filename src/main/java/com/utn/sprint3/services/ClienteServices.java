@@ -18,4 +18,7 @@ public interface ClienteServices extends BaseServices<Cliente, Long> {
     Cliente agregarDomicilio(DtoDomicilio dto) throws Exception;
     Cliente eliminarDomicilio(Long idCliente, Long idDomicilio) throws Exception;
     List<Pedido> verPedidos(Long id) throws Exception;
+    String clienteMasPedidos() throws Exception;
+    String clienteMasImporte() throws Exception;
+
 }
