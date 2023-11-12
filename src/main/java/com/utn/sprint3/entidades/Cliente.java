@@ -15,23 +15,20 @@ import java.util.List;
 @Builder
 public class Cliente extends BaseEntidad {
 
+    @NotNull
     private String nombre;
-
+    @NotNull
     private String apellido;
-
+    @NotNull
     private String telefono;
-
+    @NotNull
     private String email;
 
+    @NotNull
     @OneToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
-    @Column(name = "fecha_baja")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaBaja;
-
-    @NotNull
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente-id")
     @Builder.Default
@@ -41,4 +38,9 @@ public class Cliente extends BaseEntidad {
     @JoinColumn(name = "id_cliente")
     @Builder.Default
     private List<Pedido> pedidos = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_cliente")
+    @Builder.Default
+    private List<NotaCredito> notaCreditos = new ArrayList<>();
 }

@@ -28,8 +28,4 @@ public class Domicilio extends BaseEntidad {
     @NotNull
     private String localidad;
 
-    @Column(name = "fecha_baja")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaBaja;
-
 }

@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
-import java.math.BigDecimal;
-
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,11 +18,7 @@ public class DetallePedido extends BaseEntidad{
     private float subtotal;
 
     @ManyToOne()
-    @JoinColumn(name = "id_articulo_insumo")
-    private ArticuloInsumo articuloInsumo;
-
-    @ManyToOne()
-    @JoinColumn(name = "id_articulo_manufacturado")
-    private ArticuloManufacturado articuloManufacturado;
+    @JoinColumn(name = "id-producto")
+    private Producto producto;
 
 }

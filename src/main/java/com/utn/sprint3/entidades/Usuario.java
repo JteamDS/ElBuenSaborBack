@@ -15,17 +15,13 @@ import java.util.Date;
 public class Usuario extends BaseEntidad {
 
     @NotNull
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
+
+    @NotNull
     @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "rol", nullable = false)
     private Rol rol;
-
-    @NotNull
-    @Column(name = "username", nullable = false, unique = true)
-    private String username;
-
-    @Column(name = "fecha_baja")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaBaja;
 }

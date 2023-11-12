@@ -24,25 +24,19 @@ public class Pedido extends BaseEntidad {
     private String fechaPedido;
 
     @NotNull
-    @Column(name = "hora_estimada_finalizacion")
-    private String horaEstimadaFinalizacion;
-
-    @NotNull
-    private float total;
-
-    @NotNull
     @Enumerated(EnumType.STRING)
     private EstadoPedido estado;
 
     @NotNull
-    @Column(name = "tipo_envio")
     @Enumerated(EnumType.STRING)
     private TipoEnvio tipoEnvio;
 
     @NotNull
-    @Column(name = "forma_pago")
     @Enumerated(EnumType.STRING)
     private FormaPago formaPago;
+
+    @NotNull
+    private float total;
 
     @ManyToOne()
     @JoinColumn(name = "id_domicilio_entrega")
