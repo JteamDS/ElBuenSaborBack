@@ -6,26 +6,27 @@ import com.utn.sprint3.Dto.DtoLogin;
 import com.utn.sprint3.services.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class AuthController {
     private final AuthService authService;
 
     @PostMapping(value = "/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody DtoLogin dtoLogin)
-    {
+    public ResponseEntity<AuthResponse> login(@RequestBody DtoLogin dtoLogin) throws Exception {
         return ResponseEntity.ok(authService.login(dtoLogin));
     }
 
+    @PostMapping(value = "/registerAdmin")
+    public ResponseEntity<AuthResponse> registerAdmin(@RequestBody DtoLogin dtoLogin) throws Exception {
+        return ResponseEntity.ok(authService.registerAdmin(dtoLogin));
+    }
+
     @PostMapping(value = "/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody DtoCliente dtoCliente)
-    {
+    public ResponseEntity<AuthResponse> register(@RequestBody DtoCliente dtoCliente) throws Exception {
         return ResponseEntity.ok(authService.register(dtoCliente));
     }
 }

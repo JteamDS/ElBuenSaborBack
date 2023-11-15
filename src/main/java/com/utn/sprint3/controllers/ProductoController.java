@@ -29,6 +29,14 @@ public class ProductoController extends BaseControllerImpl<Producto, ProductoSer
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
+    @PostMapping("/modificar")
+    public ResponseEntity<?> modificar(@RequestBody DtoProducto dtoProducto){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.modificarProducto(dtoProducto));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
+        }
+    }
     @GetMapping("/searchPaged")
     public ResponseEntity<?> search(@RequestParam String nombre, Pageable pageable){
         try{
