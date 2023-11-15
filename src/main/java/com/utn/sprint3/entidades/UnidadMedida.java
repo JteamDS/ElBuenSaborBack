@@ -21,8 +21,4 @@ public class UnidadMedida extends BaseEntidad {
     @Column(length = 25)
     private String abreviatura;
 
-    @Column(name = "fecha_baja")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaBaja;
-
 }
