@@ -12,4 +12,5 @@ public class DtoProducto {
     float stockMinimo;
     Long idUnidadMedida;
     Long idRubro;
+    Long idProducto;
 }
