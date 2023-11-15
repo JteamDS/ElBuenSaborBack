@@ -32,7 +32,15 @@ public class SecurityConfig {
                                 authRequest
                                         .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll()
                                         .requestMatchers(PathRequest.toH2Console()).permitAll()
-                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/**/**")).hasAuthority("CLIENTE")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/verDatos")).hasAuthority("CLIENTE")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/modificar")).hasAuthority("CLIENTE")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/agregarDom")).hasAuthority("CLIENTE")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/eliminarDom")).hasAuthority("CLIENTE")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/clientes/verPedidos")).hasAuthority("CLIENTE")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/rubroArticulos/buscarCategoria")).hasAuthority("CLIENTE")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/producto/search")).hasAuthority("CLIENTE")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/pedidos/crearPedido")).hasAuthority("CLIENTE")
+                                        .requestMatchers(new AntPathRequestMatcher("/api/v1/**")).hasAuthority("ADMINISTRADOR")
 
                         //.anyRequest().permitAll()
                 )
