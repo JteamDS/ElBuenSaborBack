@@ -68,6 +68,33 @@ public class ProductoServicesImpl extends BaseServicesImpl<Producto,Long> implem
     }
 
     @Override
+    public Producto modificarProducto(DtoProducto dtoProducto) throws Exception {
+        try {
+            Producto producto = productoRepository.getById(dtoProducto.getIdProducto());
+
+            if (dtoProducto.getDescripcion()!=null){
+                producto.setDescripcion(dtoProducto.getDescripcion());
+            }
+            if (dtoProducto.getPrecioVenta()!=0.0){
+                producto.setPrecioVenta(dtoProducto.getPrecioVenta());
+            }
+            if (dtoProducto.getStockActual()!=0.0){
+                producto.setStockActual(dtoProducto.getStockActual());
+            }
+            if (dtoProducto.getStockMinimo()!=0.0){
+                producto.setStockMinimo(dtoProducto.getStockMinimo());
+            }
+            if (dtoProducto.getCosto()!=0.0){
+                producto.setCosto(dtoProducto.getCosto());
+            }
+            productoRepository.save(producto);
+            return producto;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
     public Page<Producto> search(String nombre, Pageable pageable) throws Exception {
         try{
             Page<Producto> articulosInsumos= productoRepository.search(nombre, pageable);

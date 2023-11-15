@@ -3,15 +3,14 @@ package com.utn.sprint3.services;
 import com.utn.sprint3.Dto.DtoEmpleado;
 import com.utn.sprint3.entidades.Empleado;
 import com.utn.sprint3.entidades.Usuario;
+import com.utn.sprint3.jwt.JwtService;
 import com.utn.sprint3.repositorios.BaseRepository;
 import com.utn.sprint3.repositorios.EmpleadoRepository;
 import com.utn.sprint3.repositorios.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
 public class EmpleadoServiceImpl extends BaseServicesImpl<Empleado,Long> implements EmpleadoService {
 
@@ -19,9 +18,11 @@ public class EmpleadoServiceImpl extends BaseServicesImpl<Empleado,Long> impleme
     EmpleadoRepository empleadoRepository;
     @Autowired
     UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
     public EmpleadoServiceImpl(BaseRepository<Empleado,Long> baseRepository,
-                               EmpleadoRepository empleadoRepository, UsuarioRepository usuarioRepository) {
+                               EmpleadoRepository empleadoRepository, UsuarioRepository usuarioRepository, JwtService jwtService, PasswordEncoder passwordEncoder) {
         super(baseRepository);
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class EmpleadoServiceImpl extends BaseServicesImpl<Empleado,Long> impleme
             empleado.setTelefono(dtoEmpleado.getTelefono());
             empleado.setEmail(dtoEmpleado.getEmail());
             usuario.setUsername(dtoEmpleado.getUsername());
-            usuario.setPassword(dtoEmpleado.getPassword());
+            usuario.setPassword(passwordEncoder.encode(dtoEmpleado.getPassword()));
             usuario.setRol(dtoEmpleado.getRol());
             usuarioRepository.save(usuario);
             empleado.setUsuario(usuario);
